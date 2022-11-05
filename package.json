@@ -30,6 +30,9 @@
     "node-fecth": "^0.0.1-security",
     "node-fetch": "^3.2.10",
     "short-unique-id": "^4.4.4",
-    "zod": "^3.19.1"
+    "zod": "^3.19.1",
+    "prisma": "^4.5.0",
+    "tsx": "^3.11.0",
+    "typescript": "^4.8.4"
   }
 }
