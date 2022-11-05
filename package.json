@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "dev": "tsx watch src/server.ts",
+    "start": "npx prisma migrate dev && tsx watch src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "@fastify/jwt": "^6.3.2",
     "@prisma/client": "^4.5.0",
     "@types/node-fetch": "^2.6.2",
+    "dotenv": "^16.0.3",
     "fastify": "^4.9.2",
     "node-fecth": "^0.0.1-security",
     "node-fetch": "^3.2.10",

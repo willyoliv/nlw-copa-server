@@ -18,10 +18,13 @@ async function bootstrap() {
   })
 
   // Em produção isso precisa ser uma viarável de ambiente
-
-  await fastify.register(jwt, {
-    secret: 'nlwcopa',
-  })
+  if (process.env.SECRET) {
+    await fastify.register(jwt, {
+      secret: process.env.SECRET,
+    })
+  } else {
+    throw new Error()
+  }
 
   await fastify.register(poolRoutes)
   await fastify.register(authRoutes)
@@ -29,7 +32,9 @@ async function bootstrap() {
   await fastify.register(guessRoutes)
   await fastify.register(userRoutes)
 
-  await fastify.listen({ port: 3333, host: '0.0.0.0' })
+  const port = Number(process.env.PORT) || 3333
+
+  await fastify.listen({ port: port, host: '0.0.0.0' })
 }
 
 bootstrap()
